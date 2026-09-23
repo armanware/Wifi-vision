@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent" android:background="#07111D">
-
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="#07111D">
     <androidx.camera.view.PreviewView android:id="@+id/previewView" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="118dp" android:layout_marginBottom="92dp" android:scaleType="centerCrop" />
     <com.armanware.wifivision.WifiOverlayView android:id="@+id/wifiOverlay" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="118dp" android:layout_marginBottom="92dp" />
-
     <LinearLayout android:layout_width="match_parent" android:layout_height="118dp" android:orientation="vertical" android:paddingStart="20dp" android:paddingEnd="20dp" android:paddingTop="15dp" android:background="#F20A1420">
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical">
             <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="◉  WiFi Vision" android:textColor="#FFFFFF" android:textStyle="bold" android:textSize="27sp" />
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SEE • MAP • LOCATE" android:textColor="#35AFFF" android:textStyle="bold" android:textSize="11sp" />
+            <Button android:id="@+id/apListButton" android:layout_width="wrap_content" android:layout_height="42dp" android:text="AP LIST" android:textSize="11sp" android:textColor="#35AFFF" android:backgroundTint="#10263A" />
         </LinearLayout>
-        <TextView android:id="@+id/modeText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5dp" android:text="AR CAMERA  •  LIVE SIGNAL FIELD" android:textColor="#35AFFF" android:textStyle="bold" android:textSize="12sp" />
+        <TextView android:id="@+id/modeText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="AR CAMERA  •  LIVE SIGNAL FIELD" android:textColor="#35AFFF" android:textStyle="bold" android:textSize="12sp" />
         <TextView android:id="@+id/networkText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Reading Wi-Fi…" android:textColor="#EAF4FF" android:textSize="13sp" />
     </LinearLayout>
-
     <LinearLayout android:layout_width="match_parent" android:layout_height="92dp" android:layout_gravity="bottom" android:orientation="horizontal" android:gravity="center" android:padding="6dp" android:background="#F207111C">
         <Button android:id="@+id/cameraButton" android:layout_width="0dp" android:layout_height="76dp" android:layout_weight="1" android:text="⌂\nHOME" android:textSize="11sp" android:textColor="#FFFFFF" android:backgroundTint="#10263A" />
         <Button android:id="@+id/surveyButton" android:layout_width="0dp" android:layout_height="76dp" android:layout_weight="1" android:text="●\nSURVEY" android:textSize="11sp" android:textColor="#FFFFFF" android:backgroundTint="#10263A" />
@@ -21,11 +17,21 @@
         <Button android:id="@+id/propagationButton" android:layout_width="0dp" android:layout_height="76dp" android:layout_weight="1" android:text="⌁\nRF VIEW" android:textSize="11sp" android:textColor="#FFFFFF" android:backgroundTint="#10263A" />
         <Button android:id="@+id/locateButton" android:layout_width="0dp" android:layout_height="76dp" android:layout_weight="1" android:text="➤\nLOCATE" android:textSize="11sp" android:textColor="#35AFFF" android:backgroundTint="#10263A" />
     </LinearLayout>
-
-    <LinearLayout android:id="@+id/locatePanel" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_gravity="center" android:layout_margin="28dp" android:orientation="vertical" android:gravity="center" android:padding="22dp" android:background="#E8122233">
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="RF LOCATOR" android:textColor="#35AFFF" android:textStyle="bold" android:textSize="14sp" />
+    <LinearLayout android:id="@+id/locatePanel" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_gravity="center" android:layout_margin="28dp" android:orientation="vertical" android:gravity="center" android:padding="22dp" android:background="#F0122233">
+        <TextView android:id="@+id/locateTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="RF LOCATOR" android:textColor="#35AFFF" android:textStyle="bold" android:textSize="14sp" />
         <TextView android:id="@+id/directionArrow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="↑" android:textColor="#FFFFFF" android:textStyle="bold" android:textSize="88sp" />
         <TextView android:id="@+id/locateStatus" android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center" android:text="Move around slowly\nLearning strongest direction…" android:textColor="#FFFFFF" android:textSize="17sp" />
         <Button android:id="@+id/closeLocateButton" android:layout_width="match_parent" android:layout_height="52dp" android:layout_marginTop="15dp" android:text="CLOSE LOCATOR" android:textColor="#FFFFFF" android:backgroundTint="#147CC1" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/apPanel" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="118dp" android:layout_marginBottom="92dp" android:orientation="vertical" android:padding="16dp" android:background="#FA07111D">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Nearby Wi-Fi" android:textColor="#FFFFFF" android:textStyle="bold" android:textSize="24sp" />
+            <Button android:id="@+id/scanButton" android:layout_width="wrap_content" android:layout_height="48dp" android:text="SCAN" android:textColor="#FFFFFF" android:backgroundTint="#147CC1" />
+        </LinearLayout>
+        <TextView android:id="@+id/scanStatus" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="6dp" android:paddingBottom="8dp" android:text="Select an AP to locate it" android:textColor="#8FB1CA" android:textSize="13sp" />
+        <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+            <LinearLayout android:id="@+id/apListContainer" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" />
+        </ScrollView>
+        <Button android:id="@+id/closeApButton" android:layout_width="match_parent" android:layout_height="50dp" android:text="BACK TO CAMERA" android:textColor="#FFFFFF" android:backgroundTint="#10263A" />
     </LinearLayout>
 </FrameLayout>
